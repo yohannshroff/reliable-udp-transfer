@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+results/*.received.bin
+test_files/*.bin
+
+# planning / context notes (not part of the deliverable)
+CLAUDE.md
+.claude/
+*CONTEXT*.md
+NOTES.md
+TODO.md

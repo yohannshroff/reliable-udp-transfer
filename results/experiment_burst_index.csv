@@ -1,0 +1,11 @@
+proto,loss,rep,seed,integrity_ok,completed,transfer_duration_s,throughput_Mbps,retransmissions,total_packets_sent,retransmission_overhead_pct,timeouts,naks_received,loss_events,cc_decreases,final_cwnd,tag
+baseline,0.05,0,100,True,True,12.564192,1.3353,1531,3579,42.777,7,1211,124,67,17.45,baseline_loss5_burst_r0
+improved,0.05,0,100,True,True,8.8512,1.8955,376,2424,15.512,113,149,395,76,14.508,improved_loss5_burst_r0
+baseline,0.05,1,101,True,True,14.351199,1.169,1544,3592,42.984,16,1257,127,70,15.954,baseline_loss5_burst_r1
+improved,0.05,1,101,True,True,8.736971,1.9203,332,2380,13.95,103,118,351,75,16.99,improved_loss5_burst_r1
+baseline,0.05,2,102,True,True,12.852309,1.3054,1631,3679,44.333,14,1269,116,58,16.067,baseline_loss5_burst_r2
+improved,0.05,2,102,True,True,8.504555,1.9727,377,2425,15.546,97,146,385,70,15.83,improved_loss5_burst_r2
+baseline,0.05,3,103,True,True,11.908826,1.4088,1441,3489,41.301,8,1174,102,61,16.889,baseline_loss5_burst_r3
+improved,0.05,3,103,True,True,8.406078,1.9958,355,2403,14.773,98,146,367,66,19.074,improved_loss5_burst_r3
+baseline,0.05,4,104,True,True,13.05554,1.2851,1551,3599,43.095,10,1227,121,67,18.947,baseline_loss5_burst_r4
+improved,0.05,4,104,True,True,8.718149,1.9244,359,2407,14.915,116,123,374,68,17.924,improved_loss5_burst_r4

@@ -1,0 +1,3 @@
+proto,loss,n,throughput_Mbps_mean,throughput_Mbps_std,retransmission_overhead_pct_mean,retransmission_overhead_pct_std,transfer_duration_s_mean,transfer_duration_s_std,retransmissions_mean,retransmissions_std,timeouts_mean,timeouts_std
+baseline,0.05,5,1.3007,0.0781,42.898,0.9665,12.9464,0.8021,1539.6,60.4966,11.0,3.4641
+improved,0.05,5,1.9417,0.0368,14.9392,0.5836,8.6434,0.1632,359.8,16.4609,105.4,7.7614

@@ -1,0 +1,41 @@
+{
+  "run_name": "improved_loss5_burst_r0_rx",
+  "meta": {
+    "role": "receiver",
+    "protocol": "improved-sr",
+    "loss": 0.05,
+    "seed": 100,
+    "out": "results/improved_loss5_burst_r0.received.bin"
+  },
+  "events": {
+    "BUFFER": 2048,
+    "DELIVER": 2048,
+    "DUP": 220,
+    "FIN": 1,
+    "NAK": 156
+  },
+  "bytes_acked": 2097152,
+  "transfer_duration_s": 9.440822,
+  "throughput_Bps": 222136.58,
+  "throughput_Mbps": 1.7771,
+  "data_packets_sent": 0,
+  "retransmissions": 0,
+  "total_packets_sent": 0,
+  "retransmission_overhead_pct": 0.0,
+  "timeouts": 0,
+  "naks_received": 156,
+  "bytes_written": 2097152,
+  "packets_delivered": 2048,
+  "still_buffered_at_exit": 0,
+  "channel": {
+    "name": "rx-chan",
+    "configured_loss_rate": 0.05,
+    "attempted": 2425,
+    "sent": 2300,
+    "dropped_random": 125,
+    "dropped_burst": 0,
+    "reordered": 0,
+    "empirical_loss_rate": 0.0515
+  },
+  "completed": true
+}
