@@ -33,17 +33,64 @@ experiments/
   demo.py               live side-by-side comparison for the one-to-one demo
 test_files/          make_test_files.py generates tiny/small/medium/large.bin
 results/             per-run CSVs, aggregate CSVs, generated PNGs
+Makefile             macOS/Linux task runner
+tasks.ps1            Windows/PowerShell equivalent of the Makefile
 ```
+
+Runs unmodified on **macOS, Linux, and Windows** — the protocol itself is
+pure standard library (`socket`, `struct`, `threading`), no platform-specific
+code anywhere.
 
 ## Setup
 
 Standard library only for the protocol itself. Plotting needs `matplotlib`,
-installed in a local venv so the system Python is untouched:
+installed in a local venv so the system Python is untouched.
+
+**macOS / Linux:**
 
 ```bash
 python3 -m venv .venv
 ./.venv/bin/pip install matplotlib
 python3 test_files/make_test_files.py
+```
+
+**Windows (PowerShell):**
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\pip install matplotlib
+py test_files\make_test_files.py
+```
+
+### Windows quick start: `tasks.ps1`
+
+`tasks.ps1` is a drop-in PowerShell equivalent of the `Makefile` below — same
+targets, same defaults, auto-detects `py`/`python`/`python3` on PATH:
+
+```powershell
+.\tasks.ps1 venv         # create .venv + install matplotlib
+.\tasks.ps1 testfiles    # generate test_files\*.bin
+.\tasks.ps1 test         # unit tests
+.\tasks.ps1 smoke        # one baseline + one improved transfer, integrity-checked
+.\tasks.ps1 experiment   # loss-rate sweep -> results\
+.\tasks.ps1 burst        # loss-burst experiment -> results\
+.\tasks.ps1 plots        # regenerate all graphs
+.\tasks.ps1 demo -Loss 0.1
+.\tasks.ps1 clean
+```
+
+If PowerShell refuses to run it ("running scripts is disabled on this
+system"), that's the default execution policy blocking unsigned local
+scripts — either run once with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tasks.ps1 test
+```
+
+or allow local scripts for your user permanently:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 ## Run it
@@ -86,7 +133,11 @@ Full experiment sweep + graphs:
 ./.venv/bin/python -m experiments.plot_results --cwnd-loss 0.05
 ```
 
-`make test` / `make experiment` / `make plots` / `make demo` wrap these.
+`make test` / `make experiment` / `make plots` / `make demo` wrap these on
+macOS/Linux; `.\tasks.ps1 test` / `experiment` / `plots` / `demo` are the
+Windows equivalents (see above). The `manual two-terminal run` above works
+identically on Windows -- just use `py` instead of `python3` and drop the
+`./.venv/bin/` prefix in favour of `.\.venv\Scripts\`.
 
 ## Results so far (medium.bin, 256 KB, 20 ms ± 5 ms one-way delay, 3 repeats)
 
@@ -113,3 +164,14 @@ avoids timeouts only by NAK-flooding the whole window.
   response is the same and the comparison isolates ARQ + RTO.
 * Integrity is checked with SHA-256 on every `run_transfer` / `run_experiment`
   run; edge cases covered: < 1-packet file, multi-MB file, 0 % loss.
+
+## Windows notes
+
+* First run may trigger a **Windows Defender Firewall** prompt asking whether
+  Python may communicate on private/public networks -- allow it (everything
+  here talks over `127.0.0.1`, no inbound connection from outside the machine
+  is needed).
+* Everything runs identically to macOS/Linux otherwise: same commands, same
+  module layout, same output files -- only the venv path (`.venv\Scripts\`
+  vs `.venv/bin/`) and the launcher (`py` vs `python3`) differ, which
+  `tasks.ps1` already handles for you.

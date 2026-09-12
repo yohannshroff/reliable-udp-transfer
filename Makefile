@@ -1,3 +1,5 @@
+# macOS/Linux task runner. Windows: use `tasks.ps1` instead (same targets).
+
 PY      ?= python3
 VPY     ?= ./.venv/bin/python
 FILE    ?= test_files/medium.bin
