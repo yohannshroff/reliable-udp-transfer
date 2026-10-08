@@ -9,13 +9,14 @@
   },
   "events": {
     "DELIVER": 256,
+    "DUP": 11,
     "FIN": 1,
-    "GAP": 155
+    "GAP": 213
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 3.579773,
-  "throughput_Bps": 73229.23,
-  "throughput_Mbps": 0.5858,
+  "transfer_duration_s": 4.026062,
+  "throughput_Bps": 65111.77,
+  "throughput_Mbps": 0.5209,
   "data_packets_sent": 0,
   "retransmissions": 0,
   "total_packets_sent": 0,
@@ -27,12 +28,12 @@
   "channel": {
     "name": "rx-chan",
     "configured_loss_rate": 0.1,
-    "attempted": 567,
-    "sent": 510,
-    "dropped_random": 57,
+    "attempted": 695,
+    "sent": 624,
+    "dropped_random": 71,
     "dropped_burst": 0,
     "reordered": 0,
-    "empirical_loss_rate": 0.1005
+    "empirical_loss_rate": 0.1022
   },
   "completed": true
 }

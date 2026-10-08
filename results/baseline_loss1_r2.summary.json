@@ -25,12 +25,12 @@
     "NAK": 8,
     "RETX": 9,
     "SEND": 256,
-    "STATS": 12
+    "STATS": 13
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 1.15386,
-  "throughput_Bps": 227188.81,
-  "throughput_Mbps": 1.8175,
+  "transfer_duration_s": 1.313487,
+  "throughput_Bps": 199578.61,
+  "throughput_Mbps": 1.5966,
   "data_packets_sent": 256,
   "retransmissions": 9,
   "total_packets_sent": 265,

@@ -25,12 +25,12 @@
     "NAK": 29,
     "RETX": 33,
     "SEND": 256,
-    "STATS": 13
+    "STATS": 12
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 1.259131,
-  "throughput_Bps": 208194.39,
-  "throughput_Mbps": 1.6656,
+  "transfer_duration_s": 1.23338,
+  "throughput_Bps": 212541.14,
+  "throughput_Mbps": 1.7003,
   "data_packets_sent": 256,
   "retransmissions": 33,
   "total_packets_sent": 289,
@@ -40,7 +40,7 @@
   "completed": true,
   "fin_acked": true,
   "loss_events": 3,
-  "final_cwnd": 20.211,
+  "final_cwnd": 20.192,
   "cc_increases": 256,
   "cc_decreases": 3,
   "channel": {

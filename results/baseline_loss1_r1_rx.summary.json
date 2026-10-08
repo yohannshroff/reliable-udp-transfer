@@ -13,9 +13,9 @@
     "GAP": 30
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 1.851882,
-  "throughput_Bps": 141555.43,
-  "throughput_Mbps": 1.1324,
+  "transfer_duration_s": 1.821917,
+  "throughput_Bps": 143883.62,
+  "throughput_Mbps": 1.1511,
   "data_packets_sent": 0,
   "retransmissions": 0,
   "total_packets_sent": 0,

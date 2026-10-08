@@ -1,0 +1,39 @@
+{
+  "run_name": "baseline_loss10_r6_rx",
+  "meta": {
+    "role": "receiver",
+    "protocol": "baseline-gbn",
+    "loss": 0.1,
+    "seed": 106,
+    "out": "results/baseline_loss10_r6.received.bin"
+  },
+  "events": {
+    "DELIVER": 256,
+    "DUP": 2,
+    "FIN": 1,
+    "GAP": 161
+  },
+  "bytes_acked": 262144,
+  "transfer_duration_s": 3.355352,
+  "throughput_Bps": 78127.12,
+  "throughput_Mbps": 0.625,
+  "data_packets_sent": 0,
+  "retransmissions": 0,
+  "total_packets_sent": 0,
+  "retransmission_overhead_pct": 0.0,
+  "timeouts": 0,
+  "naks_received": 0,
+  "bytes_written": 262144,
+  "packets_delivered": 256,
+  "channel": {
+    "name": "rx-chan",
+    "configured_loss_rate": 0.1,
+    "attempted": 581,
+    "sent": 524,
+    "dropped_random": 57,
+    "dropped_burst": 0,
+    "reordered": 0,
+    "empirical_loss_rate": 0.0981
+  },
+  "completed": true
+}

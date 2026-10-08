@@ -60,13 +60,14 @@ def main():
     args = ap.parse_args()
 
     os.makedirs(args.results_dir, exist_ok=True)
+    reorder_tag = f"_reorder{args.reorder*100:g}" if args.reorder > 0 else ""
     default_name = ("experiment_burst_index.csv" if args.burst_at is not None
-                    else "experiment_index.csv")
+                    else f"experiment{reorder_tag}_index.csv")
     index_path = os.path.join(args.results_dir, args.index_name or default_name)
     rows = []
     port = args.base_port
 
-    burst_tag = "_burst" if args.burst_at is not None else ""
+    burst_tag = ("_burst" if args.burst_at is not None else "") + reorder_tag
     t0 = time.time()
     for loss in args.loss:
         for rep in range(args.repeats):
