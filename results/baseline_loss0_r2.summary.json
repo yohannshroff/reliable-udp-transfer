@@ -24,9 +24,9 @@
     "STATS": 11
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 1.043479,
-  "throughput_Bps": 251221.22,
-  "throughput_Mbps": 2.0098,
+  "transfer_duration_s": 1.073668,
+  "throughput_Bps": 244157.47,
+  "throughput_Mbps": 1.9533,
   "data_packets_sent": 256,
   "retransmissions": 0,
   "total_packets_sent": 256,

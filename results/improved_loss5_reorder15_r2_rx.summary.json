@@ -1,0 +1,41 @@
+{
+  "run_name": "improved_loss5_reorder15_r2_rx",
+  "meta": {
+    "role": "receiver",
+    "protocol": "improved-sr",
+    "loss": 0.05,
+    "seed": 102,
+    "out": "results/improved_loss5_reorder15_r2.received.bin"
+  },
+  "events": {
+    "BUFFER": 256,
+    "DELIVER": 256,
+    "DUP": 42,
+    "FIN": 1,
+    "NAK": 36
+  },
+  "bytes_acked": 262144,
+  "transfer_duration_s": 2.243184,
+  "throughput_Bps": 116862.46,
+  "throughput_Mbps": 0.9349,
+  "data_packets_sent": 0,
+  "retransmissions": 0,
+  "total_packets_sent": 0,
+  "retransmission_overhead_pct": 0.0,
+  "timeouts": 0,
+  "naks_received": 36,
+  "bytes_written": 262144,
+  "packets_delivered": 256,
+  "still_buffered_at_exit": 0,
+  "channel": {
+    "name": "rx-chan",
+    "configured_loss_rate": 0.05,
+    "attempted": 335,
+    "sent": 318,
+    "dropped_random": 17,
+    "dropped_burst": 0,
+    "reordered": 53,
+    "empirical_loss_rate": 0.0507
+  },
+  "completed": true
+}

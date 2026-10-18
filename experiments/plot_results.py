@@ -340,6 +340,37 @@ def plot_recovery_after_burst(index_rows, outdir):
     return p
 
 
+def plot_reorder(rows, outdir):
+    """Throughput and overhead vs. packet-reordering rate (fixed loss)."""
+    import re
+    if not rows:
+        return None
+    for r in rows:
+        r["reorder"] = float(re.search(r"reorder([\d.]+)", r["tag"]).group(1))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.5, 4.2))
+    for proto, c in (("baseline", BASE_C), ("improved", IMPR_C)):
+        xs = sorted({r["reorder"] for r in rows if r["proto"] == proto})
+        for ax, key in ((a1, "throughput_Mbps"), (a2, "retransmission_overhead_pct")):
+            m, sd = [], []
+            for x in xs:
+                v = [r[key] for r in rows if r["proto"] == proto and r["reorder"] == x]
+                m.append(statistics.mean(v))
+                sd.append(statistics.pstdev(v) if len(v) > 1 else 0.0)
+            ax.errorbar(xs, m, yerr=sd, marker="o", capsize=3, color=c, label=proto)
+    loss = rows[0]["loss"] * 100
+    a1.set_ylabel("throughput (Mbps)")
+    a2.set_ylabel("retransmission overhead (%)")
+    for ax in (a1, a2):
+        ax.set_xlabel("packet reordering rate (%)")
+        ax.grid(True, alpha=0.3)
+        ax.legend()
+    a1.set_title(f"Throughput vs. reordering (loss = {loss:g}%)")
+    a2.set_title(f"Overhead vs. reordering (loss = {loss:g}%)")
+    p = os.path.join(outdir, "fig_reorder.png")
+    fig.tight_layout(); fig.savefig(p, dpi=140); plt.close(fig)
+    return p
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results-dir", default="results")
@@ -354,7 +385,9 @@ def main():
         sys.exit(1)
     all_rows = read_index(idx_paths)
     # loss-rate sweep plots exclude burst runs (single loss value, would skew)
-    sweep_rows = [r for r in all_rows if "burst" not in r["tag"]]
+    sweep_rows = [r for r in all_rows
+                  if "burst" not in r["tag"] and "reorder" not in r["tag"]]
+    reorder_rows = [r for r in all_rows if "reorder" in r["tag"]]
 
     made = []
     if sweep_rows:
@@ -364,6 +397,9 @@ def main():
             plot_cwnd_over_time(sweep_rows, args.results_dir, args.cwnd_loss),
             plot_throughput_variance(sweep_rows, args.results_dir),
         ]
+    ro = plot_reorder(reorder_rows, args.results_dir)
+    if ro:
+        made.append(ro)
     rec = plot_recovery_after_burst(all_rows, args.results_dir)
     if rec:
         made.append(rec)

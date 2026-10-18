@@ -139,16 +139,20 @@ Windows equivalents (see above). The `manual two-terminal run` above works
 identically on Windows -- just use `py` instead of `python3` and drop the
 `./.venv/bin/` prefix in favour of `.\.venv\Scripts\`.
 
-## Results so far (medium.bin, 256 KB, 20 ms ± 5 ms one-way delay, 3 repeats)
+## Results (medium.bin, 256 KB, 20 ms ± 5 ms one-way delay, 10 repeats)
 
 | loss | throughput (Mbps) base → impr | retx overhead base → impr | transfer time base → impr |
 |---|---|---|---|
-| 0 %  | 1.99 → 2.00 | 0 % → 0 %      | 1.05 s → 1.05 s |
-| 1 %  | 1.60 → 1.76 | 8.9 % → 3.8 %  | 1.34 s → 1.19 s |
-| 5 %  | 1.10 → 1.42 | 30.0 % → 13.7 % | 1.97 s → 1.48 s |
-| 10 % | 0.79 → 1.10 | 42.8 % → 23.1 % | 2.68 s → 1.91 s |
+| 0 %  | 1.90 → 1.97 | 0 % → 0 %       | 1.10 s → 1.07 s |
+| 1 %  | 1.73 → 1.72 (tie) | 8.4 % → 2.8 %   | 1.23 s → 1.22 s |
+| 5 %  | 1.05 → 1.24 | 31.8 % → 14.0 % | 2.02 s → 1.70 s |
+| 10 % | 0.69 → 1.02 | 47.4 % → 21.8 % | 3.14 s → 2.09 s |
 
-Improved: **~2× lower retransmission overhead**, **+25–40 % throughput** under
+With 5 % loss plus packet reordering, the improved version also keeps its lead
+(see `results/fig_reorder.png`). The final report is `Final_Report.docx`
+(course Template II).
+
+Improved: **~2× lower retransmission overhead**, **+18–48 % throughput (from 5 % loss upward; a tie at 1 %)** under
 loss, and much lower run-to-run variance — with no penalty at 0 % loss. It
 takes more (cheap, adaptive-RTO) timeouts as a backstop where the baseline
 avoids timeouts only by NAK-flooding the whole window.

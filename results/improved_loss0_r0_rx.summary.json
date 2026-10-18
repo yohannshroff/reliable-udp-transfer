@@ -13,9 +13,9 @@
     "FIN": 1
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 1.641576,
-  "throughput_Bps": 159690.4,
-  "throughput_Mbps": 1.2775,
+  "transfer_duration_s": 1.582255,
+  "throughput_Bps": 165677.44,
+  "throughput_Mbps": 1.3254,
   "data_packets_sent": 0,
   "retransmissions": 0,
   "total_packets_sent": 0,

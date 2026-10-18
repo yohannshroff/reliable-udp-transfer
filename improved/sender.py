@@ -310,7 +310,7 @@ def build_parser():
     ap.add_argument("--reorder", type=float, default=0.0)
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--init-rto", type=float, default=1.0, help="initial RTO before first RTT sample, s")
-    ap.add_argument("--min-rto", type=float, default=0.05)
+    ap.add_argument("--min-rto", type=float, default=0.1)
     ap.add_argument("--max-rto", type=float, default=2.0)
     ap.add_argument("--init-cwnd", type=float, default=4.0)
     ap.add_argument("--min-retx-gap", type=float, default=0.02,

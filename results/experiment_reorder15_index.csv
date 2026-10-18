@@ -1,0 +1,11 @@
+proto,loss,rep,seed,integrity_ok,completed,transfer_duration_s,throughput_Mbps,retransmissions,total_packets_sent,retransmission_overhead_pct,timeouts,naks_received,loss_events,cc_decreases,final_cwnd,tag
+baseline,0.05,0,100,True,True,3.217929,0.6517,558,814,68.55,2,250,68,21,9.987,baseline_loss5_reorder15_r0
+improved,0.05,0,100,True,True,1.962062,1.0689,88,344,25.581,8,59,88,15,13.185,improved_loss5_reorder15_r0
+baseline,0.05,1,101,True,True,2.721907,0.7705,459,715,64.196,0,195,67,22,11.712,baseline_loss5_reorder15_r1
+improved,0.05,1,101,True,True,1.860996,1.1269,70,326,21.472,0,49,71,18,12.048,improved_loss5_reorder15_r1
+baseline,0.05,2,102,True,True,2.562133,0.8185,455,711,63.994,0,223,59,19,10.43,baseline_loss5_reorder15_r2
+improved,0.05,2,102,True,True,1.632757,1.2844,53,309,17.152,6,33,55,11,14.748,improved_loss5_reorder15_r2
+baseline,0.05,3,103,True,True,2.68816,0.7801,510,766,66.58,0,256,64,20,11.921,baseline_loss5_reorder15_r3
+improved,0.05,3,103,True,True,2.582017,0.8122,80,336,23.81,4,56,81,17,12.703,improved_loss5_reorder15_r3
+baseline,0.05,4,104,True,True,2.997165,0.6997,496,752,65.957,0,259,71,23,10.186,baseline_loss5_reorder15_r4
+improved,0.05,4,104,True,True,1.941796,1.08,72,328,21.951,8,45,72,14,13.799,improved_loss5_reorder15_r4

@@ -10,32 +10,32 @@
   "events": {
     "BUFFER": 256,
     "DELIVER": 256,
-    "DUP": 52,
+    "DUP": 44,
     "FIN": 1,
-    "NAK": 34
+    "NAK": 33
   },
   "bytes_acked": 262144,
-  "transfer_duration_s": 2.369287,
-  "throughput_Bps": 110642.58,
-  "throughput_Mbps": 0.8851,
+  "transfer_duration_s": 2.504469,
+  "throughput_Bps": 104670.5,
+  "throughput_Mbps": 0.8374,
   "data_packets_sent": 0,
   "retransmissions": 0,
   "total_packets_sent": 0,
   "retransmission_overhead_pct": 0.0,
   "timeouts": 0,
-  "naks_received": 34,
+  "naks_received": 33,
   "bytes_written": 262144,
   "packets_delivered": 256,
   "still_buffered_at_exit": 0,
   "channel": {
     "name": "rx-chan",
     "configured_loss_rate": 0.1,
-    "attempted": 346,
-    "sent": 309,
-    "dropped_random": 37,
+    "attempted": 334,
+    "sent": 301,
+    "dropped_random": 33,
     "dropped_burst": 0,
     "reordered": 0,
-    "empirical_loss_rate": 0.1069
+    "empirical_loss_rate": 0.0988
   },
   "completed": true
 }

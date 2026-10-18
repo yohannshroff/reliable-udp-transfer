@@ -1,0 +1,41 @@
+{
+  "run_name": "improved_loss10_r4_rx",
+  "meta": {
+    "role": "receiver",
+    "protocol": "improved-sr",
+    "loss": 0.1,
+    "seed": 104,
+    "out": "results/improved_loss10_r4.received.bin"
+  },
+  "events": {
+    "BUFFER": 256,
+    "DELIVER": 256,
+    "DUP": 32,
+    "FIN": 1,
+    "NAK": 38
+  },
+  "bytes_acked": 262144,
+  "transfer_duration_s": 2.314904,
+  "throughput_Bps": 113241.85,
+  "throughput_Mbps": 0.9059,
+  "data_packets_sent": 0,
+  "retransmissions": 0,
+  "total_packets_sent": 0,
+  "retransmission_overhead_pct": 0.0,
+  "timeouts": 0,
+  "naks_received": 38,
+  "bytes_written": 262144,
+  "packets_delivered": 256,
+  "still_buffered_at_exit": 0,
+  "channel": {
+    "name": "rx-chan",
+    "configured_loss_rate": 0.1,
+    "attempted": 327,
+    "sent": 306,
+    "dropped_random": 21,
+    "dropped_burst": 0,
+    "reordered": 0,
+    "empirical_loss_rate": 0.0642
+  },
+  "completed": true
+}
