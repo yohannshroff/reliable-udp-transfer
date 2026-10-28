@@ -54,7 +54,7 @@ def test_channel_empirical_loss_rate():
         ch.sendto(b"x", dst_addr)
     emp = ch.empirical_loss_rate()
     assert 0.27 <= emp <= 0.33, emp
-    print(f"ok  channel loss rate ~30%% (empirical {emp:.3f})")
+    print(f"ok  channel loss rate ~30% (empirical {emp:.3f})")
     ch.close()
     dst.close()
 

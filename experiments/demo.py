@@ -133,16 +133,18 @@ def main():
 
     def row(name, bval, ival, fmt="{:.3f}", better="low"):
         bs, is_ = fmt.format(bval), fmt.format(ival)
-        if better == "low":
-            win = "improved" if ival < bval else "baseline"
-            delta = (bval - ival) / bval * 100 if bval else 0.0
+        if fmt.format(bval) == fmt.format(ival):
+            win = "tie"
+        elif (ival < bval) == (better == "low"):
+            win = "improved"
         else:
-            win = "improved" if ival > bval else "baseline"
-            delta = (ival - bval) / bval * 100 if bval else 0.0
-        print(f"  {name:26} {bs:>12} {is_:>12}   {win:8} ({delta:+.1f}%)")
+            win = "baseline"
+        # change = improved relative to baseline (negative = improved is lower)
+        change = f"{(ival - bval) / bval * 100:+.1f}%" if bval else "n/a"
+        print(f"  {name:26} {bs:>12} {is_:>12}   {win:8} {change:>8}")
 
     print("\n  " + "-" * 72)
-    print(f"  {'metric':26} {'baseline':>12} {'improved':>12}   {'winner':8}")
+    print(f"  {'metric':26} {'baseline':>12} {'improved':>12}   {'better':8} {'change':>8}")
     print("  " + "-" * 72)
     row("transfer time (s)", b["transfer_duration_s"], im["transfer_duration_s"])
     row("throughput (Mbps)", b["throughput_Mbps"], im["throughput_Mbps"],
@@ -158,7 +160,8 @@ def main():
           f"{str(im['_integrity_ok']):>12}")
     print("  " + "-" * 72)
     print(f"  improved final adaptive RTO: {im.get('final_rto_ms', 0):.0f} ms "
-          f"(SRTT {im.get('final_srtt_ms', 0):.1f} ms)\n")
+          f"(SRTT {im.get('final_srtt_ms', 0):.1f} ms; RTO floor 100 ms, "
+          f"values above it come from timeout backoff)\n")
 
 
 if __name__ == "__main__":
